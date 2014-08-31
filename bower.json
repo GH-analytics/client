@@ -1,0 +1,22 @@
+{
+  "name": "Ashley & Michael Schuett",
+  "version": "1.0.0",
+  "authors": [
+    "Ashley Schuett <schuetta@uwm.edu>",
+    "Michael Schuett <mschuett@uwm.edu>"
+  ],
+  "main": "bower_components/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular-resource": "~1.2.15",
+    "angular-route": "~1.2.15",
+    "web-starter-kit" : "latest",
+    "fontawesome": "latest",
+    "modernizr": "latest"
+  }
+}
