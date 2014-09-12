@@ -10,6 +10,10 @@ app.config(['$routeProvider',
 				templateUrl:'assets/partials/index.html',
 				controller: 'Main'
 			}).
+			when('/sign-up', {
+				templateUrl: 'assets/partials/sign-up.html',
+				controller: 'Main'
+			}).
 			otherwise({
 			 redirectTo: '/'
 			})
