@@ -8,7 +8,7 @@ body
 	width: 100%;
 	height: 80vh;
 	min-height: 100%;
-	background-image: url('../img/HangoutsIcon.png');
+	background-image: url('../img/stats.png');
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center; 
@@ -33,21 +33,29 @@ body
 	text-align: right;
 	margin-top: 0px;
 }
-#home-header button.top
+#home-header a.top
 {
 	margin-top: 30vh !important;
 	margin-bottom: 15px;
 }
-#home-header button
+#home-header a
 {
 	display: block;
-	height: 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	border: none;
 	font-weight: bolder;
 	font-size: 129%;
 	width: 250px;
 	background-color: rgba(255, 255, 255, 0.5);
 	margin: auto;
+	color: black !important;
+	text-align: center;
+}
+
+#home-header a:hover
+{
+	text-decoration: none;
 }
 
 #page-header

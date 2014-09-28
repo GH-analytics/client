@@ -8,34 +8,34 @@
          <title>Google Hangouts Analytics</title>
          
 	</head>
-<body>
-<div id="page-header" ng-hide="page">
+<body ng-controller="Main">
+
+<div id="page-header" ng-show="page != '/'">
   <div id="logo">
-    <i class="fa fa-quote-left"></i>Analytics<i class="fa fa-quote-right"></i>
+    <a href="#/" ng-click="refresh()"><i class="fa fa-quote-left"></i>Analytics<i class="fa fa-quote-right"></i></a>
   </div>
   <div id="menu-items">
     Logout
   </div>
 </div>
 
-<div id="home-header" ng-show="page" >
+<div id="home-header" ng-show="page == '/'" >
   <div id="home-header-text">
     <h1 class="text-center">Google+ Hangouts*</h1>
     <h3>Analytics</h3>
   </div>
-  <form action="#/sign-in">
-    <button class="top" type="submit">Sign In</button>
-  </form>
-  <button>Sign Up</button>
+  <a class="top" href="#/sign-in" ng-click="refresh()">Sign In</a>
+  <a href="#/sign-up" ng-click="refresh()">Sign Up</a>
 </div>
 
+<div class="row">
+  <div class="col-sm-8 col-sm-push-2 col-sm-pull-2" ng-view>
 
-<div ng-view>
-
+  </div>
 </div>
 
 <div id="footer">
- *in no way associated with Google. 
+ *in no way associated with Google
 </div>
 
 
