@@ -21,3 +21,9 @@ Controllers.controller('Main', ['$scope', '$location', '$timeout',
 		
 	}
 ]);
+
+Controllers.controller('Profile', ['$scope',
+    function($scope){
+
+    }
+]);

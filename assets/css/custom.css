@@ -3,15 +3,23 @@ body
 	margin: 0px !important;
 }
 
+html body#override{
+    font-family: 'Stint Ultra Expanded', cursive !important;
+}
+
+html body#override p{
+    font-family: 'Pontano Sans', sans-serif !important;
+}
+
 #home-header
 {
 	width: 100%;
 	height: 80vh;
 	min-height: 100%;
-	background-image: url('../img/stats.png');
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center; 
+	/*background-image: url('../img/stats.png');*/
+	/*background-repeat: no-repeat;*/
+	/*background-size: contain;*/
+	/*background-position: center; */
 
 }
 
@@ -35,7 +43,7 @@ body
 }
 #home-header a.top
 {
-	margin-top: 30vh !important;
+	margin-top: 10vh !important;
 	margin-bottom: 15px;
 }
 #home-header a
@@ -47,10 +55,43 @@ body
 	font-weight: bolder;
 	font-size: 129%;
 	width: 250px;
-	background-color: rgba(255, 255, 255, 0.5);
 	margin: auto;
 	color: black !important;
 	text-align: center;
+}
+
+.green
+{
+    color: #029f5a;
+}
+.gold
+{
+    color: #ffbd0a;
+}
+.red
+{
+    color: #d3412e;
+}
+.blue
+{
+    color: #1f73f0;
+}
+h3
+{
+    color: #9fa2a6 !important;
+}
+
+#home-header a.signin
+{
+    border: 2px solid #1f73f0;
+    border-left: 10px solid #d3412e !important;
+}
+
+
+#home-header a.signup
+{
+    border: 2px solid #029f5a;
+    border-left: 10px solid #ffbd0a !important;
 }
 
 #home-header a:hover

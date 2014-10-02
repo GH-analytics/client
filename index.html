@@ -8,11 +8,11 @@
          <title>Google Hangouts Analytics</title>
          
 	</head>
-<body ng-controller="Main">
+<body id="override" ng-controller="Main">
 
 <div id="page-header" ng-show="page != '/'">
   <div id="logo">
-    <a href="#/" ng-click="refresh()"><i class="fa fa-quote-left"></i>Analytics<i class="fa fa-quote-right"></i></a>
+    <a href="#/" ng-click="refresh()"><i class="fa fa-quote-left"></i><span class="blue">A</span><span class="red">n</span><span class="gold">a</span><span class="blue">l</span><span class="green">y</span><span class="red">t</span>ics<i class="fa fa-quote-right"></i></a>
   </div>
   <div id="menu-items">
     Logout
@@ -21,11 +21,11 @@
 
 <div id="home-header" ng-show="page == '/'" >
   <div id="home-header-text">
-    <h1 class="text-center">Google+ Hangouts*</h1>
+    <h1 class="text-center" style="font-size: 180%;"><span class="blue">G</span><span class="red">o</span><span class="gold">o</span><span class="blue">g</span><span class="green">l</span><span class="red">e</span>+ Hangouts</h1>
     <h3>Analytics</h3>
   </div>
-  <a class="top" href="#/sign-in" ng-click="refresh()">Sign In</a>
-  <a href="#/sign-up" ng-click="refresh()">Sign Up</a>
+  <a class="top signin" href="#/sign-in" ng-click="refresh()">Sign In</a>
+  <a class="signup" href="#/sign-up" ng-click="refresh()">Sign Up</a>
 </div>
 
 <div class="row">
@@ -37,6 +37,10 @@
 <div id="footer">
  *in no way associated with Google
 </div>
+
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Expanded' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
 
 
 
