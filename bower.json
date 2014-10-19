@@ -17,6 +17,7 @@
     "angular-route": "~1.2.15",
     "fontawesome": "latest",
     "modernizr": "latest",
+    "angular-file-upload": "latest",
     "bootstrap" : "v3.1.1"
   }
 }

@@ -1,6 +1,8 @@
 var app = angular.module('app', [
 	'ngRoute',
-	'Controllers'
+	'Controllers',
+    'Services',
+    'angularFileUpload'
 ]);
 
 app.config(['$routeProvider',
@@ -17,6 +19,10 @@ app.config(['$routeProvider',
             when('/sign-in', {
                 templateUrl: 'assets/partials/sign-in.html',
                 controller: 'Profile'
+            }).
+            when('/upload', {
+                templateUrl: 'assets/partials/upload.html',
+                controller: 'FileUpload'
             }).
 			otherwise({
 			 redirectTo: '/'

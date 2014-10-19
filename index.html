@@ -10,24 +10,6 @@
 	</head>
 <body id="override" ng-controller="Main">
 
-<div id="page-header" ng-show="page != '/'">
-  <div id="logo">
-    <a href="#/" ng-click="refresh()"><i class="fa fa-quote-left"></i><span class="blue">A</span><span class="red">n</span><span class="gold">a</span><span class="blue">l</span><span class="green">y</span><span class="red">t</span>ics<i class="fa fa-quote-right"></i></a>
-  </div>
-  <div id="menu-items">
-    Logout
-  </div>
-</div>
-
-<div id="home-header" ng-show="page == '/'" >
-  <div id="home-header-text">
-    <h1 class="text-center" style="font-size: 180%;"><span class="blue">G</span><span class="red">o</span><span class="gold">o</span><span class="blue">g</span><span class="green">l</span><span class="red">e</span>+ Hangouts</h1>
-    <h3>Analytics</h3>
-  </div>
-  <a class="top signin" href="#/sign-in" ng-click="refresh()">Sign In</a>
-  <a class="signup" href="#/sign-up" ng-click="refresh()">Sign Up</a>
-</div>
-
 <div class="row">
   <div class="col-sm-8 col-sm-push-2 col-sm-pull-2" ng-view>
 
@@ -54,10 +36,13 @@
   <script src='bower_components/angular-route/angular-route.min.js'></script>
   <script src='bower_components/angular-resource/angular-resource.min.js'></script>
   <script async src="bower_components/modernizr/modernizr.js"></script>
+  <!--<script src="bower_components/angular-file-upload/angular-file-upload-shim.min.js"></script>-->
+  <script src='bower_components/angular-file-upload/angular-file-upload.min.js'></script>
 
   <!-- App angular files -->
   <script src='assets/js/app.js'></script>
   <script src='assets/js/controller.js'></script>
+  <script src='assets/js/service.js'></script>
 
 
   </body>
