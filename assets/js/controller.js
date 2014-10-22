@@ -6,26 +6,91 @@ Controllers.controller('Main', ['$scope', '$location', '$timeout',
 	}
 ]);
 
-Controllers.controller('Profile', ['$scope', 'Login', 'SignUp',
-    function($scope, Login, SignUp)
+Controllers.controller('Profile', ['$scope', '$location',  'Login', 'SignUp',
+    function($scope, $location, Login, SignUp)
     {
+        $scope.location = $location.path() === '/sign-up';
+
         $scope.login = function()
         {
-            console.log("here");
-            Login.Login($scope.user);
+            Login.Login($scope.user, function(){
+                //success
+                console.log("in success");
+                $location.path('/dash');
+            }, function () {
+                console.log("in falure");
+            });
         }
 
         $scope.sign_up = function()
         {
-            console.log("in sign in");
-            SignUp.SignUp($scope.user);
+            SignUp.SignUp($scope.user, function(){
+                //success
+                $location.path('/dash');
+            });
         }
+    }
+]);
+
+Controllers.controller('Dashboard', ['$scope',
+    function($scope)
+    {
+
     }
 ]);
 
 Controllers.controller('FileUpload', [ '$scope', 'FileUploader',
     function($scope, FileUploader)
     {
-        $scope.uploader = new FileUploader({url: '/server/public/upload'});
+        var uploader = $scope.uploader = new FileUploader({
+            url: '/server/public/upload'
+        });
+
+        // FILTERS
+
+        uploader.filters.push({
+            name: 'customFilter',
+            fn: function(item /*{File|FileLikeObject}*/, options) {
+                return this.queue.length < 10;
+            }
+        });
+
+        // CALLBACKS
+
+        uploader.onWhenAddingFileFailed = function(item /*{File|FileLikeObject}*/, filter, options) {
+            console.info('onWhenAddingFileFailed', item, filter, options);
+        };
+        uploader.onAfterAddingFile = function(fileItem) {
+            console.info('onAfterAddingFile', fileItem);
+        };
+        uploader.onAfterAddingAll = function(addedFileItems) {
+            console.info('onAfterAddingAll', addedFileItems);
+        };
+        uploader.onBeforeUploadItem = function(item) {
+            console.info('onBeforeUploadItem', item);
+        };
+        uploader.onProgressItem = function(fileItem, progress) {
+            console.info('onProgressItem', fileItem, progress);
+        };
+        uploader.onProgressAll = function(progress) {
+            console.info('onProgressAll', progress);
+        };
+        uploader.onSuccessItem = function(fileItem, response, status, headers) {
+            console.info('onSuccessItem', fileItem, response, status, headers);
+        };
+        uploader.onErrorItem = function(fileItem, response, status, headers) {
+            console.info('onErrorItem', fileItem, response, status, headers);
+        };
+        uploader.onCancelItem = function(fileItem, response, status, headers) {
+            console.info('onCancelItem', fileItem, response, status, headers);
+        };
+        uploader.onCompleteItem = function(fileItem, response, status, headers) {
+            console.info('onCompleteItem', fileItem, response, status, headers);
+        };
+        uploader.onCompleteAll = function() {
+            console.info('onCompleteAll');
+        };
+
+        console.info('uploader', uploader);
     }
 ]);

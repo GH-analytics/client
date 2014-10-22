@@ -1,0 +1,16 @@
+<div class="slide-animate" ng-include="'/client/assets/partials/header.html'"></div>
+
+<div class="row">
+	<div class="col-xs-6 col-xs-push-3 col-xs-pull-3">
+		<div ng-show="location">
+            First Name: <input class="form-control" type="text" ng-model="user.first" />
+		</div>
+        <div ng-show="location">
+            Last Name: <input class="form-control" type="text" ng-model="user.last" />
+        </div>
+		Email: <input class="form-control" type="text" ng-model="user.email"/>
+        Password: <input type="password" class="form-control" ng-model="user.password"/>
+		<button type="button" class="btn" ng-click="sign_up()" ng-show="location">Sign up!</button>
+        <button type="button" class="btn" ng-click="login()" ng-hide="location">Login!</button>
+	</div>
+</div>

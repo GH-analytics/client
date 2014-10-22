@@ -1,23 +1,10 @@
 <div class="slide-animate" ng-include="'/client/assets/partials/header.html'"></div>
 
-<!--<div class="row">-->
-    <!--<div class="col-xs-6 col-xs-push-3">-->
-        <!--<input type="file" nv-file-select uploader="uploader"/><br/>-->
-        <!--<ul>-->
-            <!--<li ng-repeat="item in uploader.queue">-->
-                <!--Name: <span ng-bind="item.file.name"></span><br/>-->
-                <!--<button ng-click="item.upload()">upload</button>-->
-            <!--</li>-->
-        <!--</ul>-->
-
-    <!--</div>-->
-<!--</div>-->
-
 <div class="row">
 
     <div class="col-md-3">
 
-        <h3>Select files</h3>
+        <h3>Upload files</h3>
 
         <div ng-show="uploader.isHTML5">
             <!-- 3. nv-file-over uploader="link" over-class="className" -->
@@ -30,13 +17,12 @@
         <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
         Single
         <input type="file" nv-file-select="" uploader="uploader">
-        
+
     </div>
 
     <div class="col-md-9" style="margin-bottom: 40px">
 
-        <h3>Upload queue</h3>
-        <p class="ng-binding">Queue length: 0</p>
+        <h3>Uploaded</h3>
 
         <table class="table">
             <thead>
@@ -50,6 +36,13 @@
             </thead>
             <tbody>
             <!-- ngRepeat: item in uploader.queue -->
+                <tr ng-repeat="item in uploader.queue" >
+                    <td width="50%">{{item.file.name}}</td>
+                    <td ng-show="uploader.isHTML5">{{item.file.size}}</td>
+                    <td ng-show="uploader.isHTML5">Progress</td>
+                    <td>Status</td>
+                    <td>Actions</td>
+                </tr>
             </tbody>
         </table>
 
