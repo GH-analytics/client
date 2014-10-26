@@ -1,15 +1,25 @@
 var Controllers = new angular.module('Controllers', []);
 
-Controllers.controller('Main', ['$scope', '$location', '$timeout',
-	function ($scope, $location, $timeout){
-		
+Controllers.controller('Main', ['$scope', 'Auth', 'Logout',
+	function ($scope, Auth, Logout){
+
+        $scope.auth = Auth.CheckAuth();
+
+        $scope.logout = function () 
+        {
+            Logout.Logout();
+        }
+
 	}
 ]);
 
-Controllers.controller('Profile', ['$scope', '$location',  'Login', 'SignUp',
-    function($scope, $location, Login, SignUp)
+Controllers.controller('Profile', ['$scope', '$location',  'Login', 'SignUp', 'Auth',
+    function($scope, $location, Login, SignUp, Auth)
     {
         $scope.location = $location.path() === '/sign-up';
+
+        if(!$scope.location && $scope.auth.email)
+            $location.path('/dash');
 
         $scope.login = function()
         {
@@ -25,29 +35,48 @@ Controllers.controller('Profile', ['$scope', '$location',  'Login', 'SignUp',
         $scope.sign_up = function()
         {
             SignUp.SignUp($scope.user, function(){
-                //success
+                $scope.auth = Auth.CheckAuth();
                 $location.path('/dash');
             });
         }
     }
 ]);
 
-Controllers.controller('Dashboard', ['$scope',
-    function($scope)
+Controllers.controller('Dashboard', ['$scope', '$location',
+    function($scope, $location)
     {
-
+        $scope.auth.$promise.then(function(auth){
+            if(!('email' in auth))
+            {
+                $location.path('/');
+            }
+        });
+        
     }
 ]);
 
-Controllers.controller('FileUpload', [ '$scope', 'FileUploader',
-    function($scope, FileUploader)
+Controllers.controller('FileUpload', [ '$scope', 'FileUploader', 'Upload', 'Sync',
+    function($scope, FileUploader, Upload, Sync)
     {
         var uploader = $scope.uploader = new FileUploader({
             url: '/server/public/upload'
         });
 
-        // FILTERS
+        Upload.GetUploads().$promise.then(function(uploads){
+            $scope.uploads = uploads;
+        });
 
+        $scope.delete = function(file)
+        {
+            Upload.DeleteFile({id: file.id});
+        }
+
+        $scope.sync = function(file)
+        {
+            Sync.SyncFile({id: file.id});
+        }
+
+        // FILTERS
         uploader.filters.push({
             name: 'customFilter',
             fn: function(item /*{File|FileLikeObject}*/, options) {

@@ -10,7 +10,7 @@
         </div>
 		Email: <input class="form-control" type="text" ng-model="user.email"/>
         Password: <input type="password" class="form-control" ng-model="user.password"/>
-		<button type="button" class="btn" ng-click="sign_up()" ng-show="location">Sign up!</button>
-        <button type="button" class="btn" ng-click="login()" ng-hide="location">Login!</button>
+		<button type="button" class="btn" ng-keyup="$event.keyCode == 13 && sign_up()" ng-click="sign_up()" ng-show="location">Sign up!</button>
+        <button type="button" class="btn" ng-keyup="$event.keyCode == 13 && login()" ng-click="login()" ng-hide="location">Login!</button>
 	</div>
 </div>
